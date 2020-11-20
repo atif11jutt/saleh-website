@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;   
+}
+
+
+body{
+    background: #fff2e6;
+}
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #ccf2ff;
+}
+
+.menu li {
+  float: left;
+}
+
+.menu ul li {
+    list-style: none;
+    margin: 0 20px;
+    color: #000000;
+    padding: 16px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.menu input[type=text] {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+}
+
+.banner {
+    width: 80%;
+    height: 70%;
+    top: 25%;
+    left: 130px;
+    position: absolute;
+}
+.app-text{
+    width: 50%;
+    float: left;  
+}
+
+.app-text h1{
+   font-size: 43px;
+    width: 640px;
+    position: relative;
+    margin-left: 40px;
+}
+
+.app-text p{
+   width: 650px;
+    font-size: 15px;
+    margin: 30px 0 30px 40px;
+    line-height: 25px;
+}
+
+.web-picture{
+    width: 50%;
+    float: right;
+    
+}
+
+.web-picture img{
+    width: 100%;
+    margin-top: -20px;
+    padding-left: 50px;
+}
+
+
+nav{
+    position: sticky;
+    z-index: 1000;
+}
+
+
+
+.social-icons{
+    right: 72px;
+    bottom: 35px;
+    position: absolute;
+}
+
+
+.social-icons ul li {
+    list-style: none;
+    margin-top: 15px;
+    text-align: center;
+}
+
+
+.social-icons ul li a{
+    color:  #001f4d;
+    border-radius: 50%;
+    border: 1px solid #001f4d;
+    padding: 5px;
+    display: block;
+    transition: 0.3s all;
+}
+.social-icons ul li a:hover{
+    background: #001f4d;
+    color: #fff;
+}
