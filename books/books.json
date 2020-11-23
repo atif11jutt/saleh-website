@@ -1,0 +1,10 @@
+{"books":[
+    {"title":"Book Title 1","subtitle":"This is a subtitle","thumbnail":"images/book1.jpg","URL":"book1.html"},
+    {"title":"Book Title 2","subtitle":"This is a subtitle","thumbnail":"images/book2.png","URL":"book2.html"},
+    {"title":"Book Title 3","subtitle":"This is a subtitle","thumbnail":"images/book3.jpg","URL":"book3.html"},
+    {"title":"Book Title 4","subtitle":"This is a subtitle","thumbnail":"images/book4.jpg","URL":"book1.html"},
+    {"title":"Book Title 5","subtitle":"This is a subtitle","thumbnail":"images/book5.png","URL":"book2.html"},
+    {"title":"Book Title 6","subtitle":"This is a subtitle","thumbnail":"images/book6.jpg","URL":"book3.html"},
+    {"title":"Book Title 7","subtitle":"This is a subtitle","thumbnail":"images/book7.jpg","URL":"book1.html"},
+    {"title":"Book Title 8","subtitle":"This is a subtitle","thumbnail":"images/book1.jpg","URL":"book2.html"}
+]}

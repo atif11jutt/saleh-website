@@ -10,96 +10,85 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src='JS/app.js'></script>
+    <script>
+        $(document).ready(function(){
+            
+            //books fetching
+            $.ajax({
+                method: 'GET',
+                url: 'books/books.json'
+            }).done(function (data) {
+                for(var i=0; i<data.books.length; i++){
+                    var booksHtml = `<div class="col-sm-3">
+                        <a href="books/${data.books[i].URL}" class="book">
+                          <img class="w-100 img-fluid" src="${data.books[i].thumbnail}">
+                          <h3 class="bookTiltle">${data.books[i].title}</h3>
+                          <p>${data.books[i].subtitle}</p>
+                        </a>
+                    </div>`;
+                    $("#books").append(booksHtml)
+                }
+            });
+            
+            $("#search-box").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $(".bookTiltle").filter(function() {
+                  $(this).parent().toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
     </head>
     
     <body>
     
-      
-        
+
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-  <a class="navbar-brand" href="index.html">READAILY</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+            <a class="navbar-brand" href="index.html">READAILY</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mx-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="index.html"><i class="fa fa-home"></i> Home</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="BookCenter.html"><i class="fa fa-book"></i> Book center</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="Podcast.html"><i class="fa fa-podcast"> </i> Podcast</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="Sales.html"><i class="fa fa-percent"> </i> Sales</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="Delivery.html"><i class="fa fa-truck"> </i> Delivery</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="SupportC.html"><i class="fa fa-tty"> </i> Support</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
-    <div class="container-fluid">
-        
-<div class="jumbotron text-center">
-  <h1>Welcome to Book Center</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p> 
-</div>
-  
-<div class="container">
-  <div class="row" id="books">
-
-  </div>
-</div>
-             
-        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html"><i class="fa fa-home"></i> Home</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="BookCenter.html"><i class="fa fa-book"></i> Book center</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Podcast.html"><i class="fa fa-podcast"> </i> Podcast</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Sales.html"><i class="fa fa-percent"> </i> Sales</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Delivery.html"><i class="fa fa-truck"> </i> Delivery</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="SupportC.html"><i class="fa fa-tty"> </i> Support</a>
+              </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search-box">
+            </form>
+          </div>
+        </nav>
+        <div class="jumbotron text-center">
+          <h1>Welcome to Book Center</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p> 
         </div>
-    
-    
-    
-    
-    
-    
-    
+        
+    <div class="container-fluid">
+
+        <div class="container">
+          <div class="row" id="books">
+              <!-- books from json file will be placed here -->
+          </div>
+        </div>
+
+    </div>
     
     </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </html>

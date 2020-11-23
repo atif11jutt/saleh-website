@@ -1,66 +1,54 @@
 jQuery(function($){
     
     
-    //books fetching
     
+    var buttonHtml = `<div class="toggleWrapper">
+  <input type="checkbox" class="dn" id="dn"/>
+  <label for="dn" class="toggle">
+    <span class="toggle__handler">
+      <span class="crater crater--1"></span>
+      <span class="crater crater--2"></span>
+    </span>
+    <span class="star star--1"></span>
+    <span class="star star--2"></span>
+    <span class="star star--3"></span>
+    <span class="star star--4"></span>
+  </label>
+</div>`
+    $("body").append(buttonHtml)
     
-    
-    $.ajax({
-            method: 'GET',
-            url: 'books.json'
-        }).done(function (data) {
-//            console.log(data.books)
-        
-            for(var i=0; i<data.books.length; i++){
-                var booksHtml = `<div class="col-sm-3">
-                    <img class="w-100 img-fluid" src="${data.books[i].thumbnail}">
-                  <h3>${data.books[i].title}</h3>
-                  <p>${data.books[i].subtitle}</p>
-                </div>`;
-                $("#books").append(booksHtml)
-            }
-            
+  
+  $('.dn').click(function(){
+    if($("body").hasClass("dark")){
+      lightMode();
+    }else{
+      darkMode();
+    }
+    console.log(mode)
+  });
+  
+  let mode;
+  mode = localStorage.getItem('mode');
+  console.log(mode)
+  
+  if (mode == 'dark'){
+      darkMode();
+      $('.dn').prop('checked', true);
+  }else{
+    lightMode();
+  }
+  
+  function darkMode() {
+    $("body").addClass("dark");
+    $(".navbar").addClass("navbar-dark").removeClass("navbar-light");
+    localStorage.setItem('mode', 'dark');
+  }
 
-        });
-    
-    
-    /*
-    
-    $.ajax({
-       url: 'books.json',
-       dataType: 'json',
-       success: function(data) {
-           console.log(data)
-           
-           
-           
-//          var items = [];
-//
-//          $.each(data, function(key, val) {
-//
-//            items.push('<li id="' + key + '">' + val + '</li>');    
-//
-//          });
-//
-//          $('<ul/>', {
-//             'class': 'interest-list',
-//             html: items.join('')
-//          }).appendTo('body');
-           
-           
-           
+    function lightMode() {
+      $("body").removeClass("dark");
+        $(".navbar").removeClass("navbar-dark").addClass("navbar-light");
+      localStorage.setItem('mode', 'light');
+    }
 
-       },
-      statusCode: {
-         404: function() {
-           alert('There was a problem with the server.  Try again soon!');
-         }
-       },
-        error: function(){
-            console.log("error")
-        }
-    });
-    
-    */
     
 })
