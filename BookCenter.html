@@ -33,7 +33,7 @@
             $("#search-box").on("keyup", function() {
                 var value = $(this).val().toLowerCase();
                 $(".bookTiltle").filter(function() {
-                  $(this).parent().toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                  $(this).parent().parent().toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
             });
         });
