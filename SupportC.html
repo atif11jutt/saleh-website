@@ -1,25 +1,87 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-    <title></title>
+    <meta charset="utf-8">
+    <title> Readaily </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="CSS/style.css">
+<!--    scripts   -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="JS/app.js"></script>
+    
+    </head>
+    
+    <body>
+    
+      
+        
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+  <a class="navbar-brand" href="index.html">READAILY</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html"><i class="fa fa-home"></i> Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="BookCenter.html"><i class="fa fa-book"></i> Book center</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Podcast.html"><i class="fa fa-podcast"> </i> Podcast</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Sales.html"><i class="fa fa-percent"> </i> Sales</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Delivery.html"><i class="fa fa-truck"> </i> Delivery</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="SupportC.html"><i class="fa fa-tty"> </i> Support</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+    <div class="container-fluid bg-pink p-0">
+        
+        
+<div id="chat-wrapper">
+  <div id="chat-bot-mood">
+    <div id="chat-bot-mood-icon"></div>
+    <div id="chat-bot-mood-label">
+      <h1 id="chat-bot-mood-text">Chatbot is feeling</h1>
+      <h1 id="chat-bot-mood-value">Mood</h1>
+    </div>
+  </div>
+  <div id="letter-pool"></div>
+  <div id="temp-letter-pool"></div>
+  <div id="letter-overlay"></div>
+  <div id="chat-message-window">
+    <div id="message-input-wrapper">
+      <div id="message-input">
+        <input id="message-input-field" type="text" placeholder="Type a message" maxlength="100"/>
+        <div id="send-message-button"><i class="far fa-arrow-alt-circle-right"></i></div>
+      </div>
+    </div>
+    <div class="scroll-bar" id="chat-message-column-wrapper">
+      <div class="static" id="chat-message-column"></div>
+    </div>
+  </div>
+</div>
+             
+        
+        </div>
+    
+    
+    
+    
+    
 
     
-</head>
-
-<body>
-    
-
-    <h1>  Welcome to our support center </h1>
-      <p> our support team will ensure to provide the maximum help that you want: </p>
-
-         <h3 style="margin-left: 10px; color:blueviolet"></h3>
-   <img style="width: 500" src="images/Contact.jpg">
-    
-    
-    <br>
-    Get back to the home page <a href="Activity6.html"> here!</a> 
-    
-</body>
-
+    <script src="JS/chotbot.js"></script>
+    </body>
 </html>
