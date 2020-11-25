@@ -1,25 +1,105 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-    <title></title>
-
+    <meta charset="utf-8">
+    <title> Readaily </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="CSS/style.css">
+<!--    scripts   -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="JS/podcast.js"></script>
+    <script src='JS/app.js'></script>
+    <script>
+        $(document).ready(function(){
+            
+            //books fetching
+            $.ajax({
+                method: 'GET',
+                url: 'podcast/podcast.json'
+            }).done(function (data) {
+                for(var i=0; i<data.podcasts.length; i++){
+                    var html = `<div class="col-12 pb-4">
+<h3 class="pod_title">${data.podcasts[i].title}</h3>
+<div class="pcast-player" id="pod-${i}">
+  <div class="pcast-player-controls">
+    <button class="pcast-play"><i class="fa fa-play"></i><span>Play</span></button>
+    <button class="pcast-pause"><i class="fa fa-pause"></i><span>Pause</span></button>
+    <button class="pcast-rewind"><i class="fa fa-fast-backward"></i><span>Rewind</span></button>
+    <span class="pcast-currenttime pcast-time">00:00</span>
+    <progress class="pcast-progress" value="0"></progress>
+    <span class="pcast-duration pcast-time">00:00</span>
+    <button class="pcast-speed">1x</button>
+    <button class="pcast-mute"><i class="fa fa-volume-up"></i><span>Mute/Unmute</span></button>
+  </div>
+  <audio src="${data.podcasts[i].audio}"></audio>
+</div></div>`;
+                    
+                    $("#podcasts").append(html)
+                    pod(`#pod-${i}`);
+                }
+            });
+            
+            $("#search-box").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $(".pod_title").filter(function() {
+                  $(this).parent().toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+    </head>
     
-</head>
-
-<body>
+    <body>
     
 
-    <h1>  Welcome to your podcast library </h1>
-      <p> Here are the podcasts we  offered: </p>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+            <a class="navbar-brand" href="index.html">READAILY</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-    <h3 style="margin-left: 200px; color:blueviolet"> The stranger story </h3>
-   <iframe width="560" height="315" src="https://www.youtube.com/embed/1Iv-Ttr_Xm8"></iframe>
-    <br>
-    Get back to the home page <a href="Activity6.html"> here!</a>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html"><i class="fa fa-home"></i> Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="BookCenter.html"><i class="fa fa-book"></i> Book center</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="Podcast.html"><i class="fa fa-podcast"> </i> Podcast</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Sales.html"><i class="fa fa-percent"> </i> Sales</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Delivery.html"><i class="fa fa-truck"> </i> Delivery</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="SupportC.html"><i class="fa fa-tty"> </i> Support</a>
+              </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search-box">
+            </form>
+          </div>
+        </nav>
+        <div class="jumbotron text-center">
+          <h1>Welcome to Our Podcast</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p> 
+        </div>
+        
+    <div class="container-fluid">
+
+        <div class="container">
+          <div class="row" id="podcasts">
+              <!-- podcast from json file will be placed here -->
+          </div>
+        </div>
+
+    </div>
     
-    
-</body>
-
-
+    </body>
 </html>

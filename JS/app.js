@@ -51,4 +51,19 @@ jQuery(function($){
     }
 
     
+    
+    
+    // login modal
+    
+    $("#login_form").submit(function(e){
+        e.preventDefault();
+        var user = $("#username").val();
+        localStorage.setItem("user",user);
+        location.reload()
+    })
+    if(localStorage.getItem('user')){
+        $("#nav_login_2").html(localStorage.getItem('user')).show();
+        $("#nav_login_1").hide();
+    }
+    
 })
