@@ -131,6 +131,10 @@ body.dark .jumbotron , body.dark .breadcrumb {
     background: #8a8a8a3d !important;
 }
 
+body.dark .card {
+    background-color: #313131;
+}
+
 /*dark input style*/
 
 .toggleWrapper {

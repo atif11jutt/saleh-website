@@ -64,6 +64,23 @@ jQuery(function($){
     if(localStorage.getItem('user')){
         $("#nav_login_2").html(localStorage.getItem('user')).show();
         $("#nav_login_1").hide();
+        $("#username").val(localStorage.getItem('user'))
     }
+    
+    $("#Redeem").click(function(e){
+        e.preventDefault();
+        alert("Kindly enter a valid promo code");
+    })
+    
+    $("#deliverForm").submit(function(e){
+        e.preventDefault();
+        alert("Thanks for the order, We'll come back to you shortly!");
+        $("#deliverForm")[0].reset();
+        $("#emptyCart").show();
+        $("#cartList").hide();
+        $("#promoCart").hide();
+        $("#cartItems").html("0");
+    })
+    
     
 })

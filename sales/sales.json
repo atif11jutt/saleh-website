@@ -1,0 +1,10 @@
+{"books":[
+    {"title":"Book Title 1","description":"This is a short story about this product...","thumbnail":"images/book1.jpg","URL":"Delivery.html", "author":"Author1", "price":"60"},
+    {"title":"Book Title 2","description":"This is a short story about this product...","thumbnail":"images/book2.png","URL":"Delivery.html", "author":"Author2", "price":"50"},
+    {"title":"Book Title 3","description":"This is a short story about this product...","thumbnail":"images/book3.jpg","URL":"Delivery.html", "author":"Author3", "price":"80"},
+    {"title":"Book Title 4","description":"This is a short story about this product...","thumbnail":"images/book4.jpg","URL":"Delivery.html", "author":"Author4", "price":"40"},
+    {"title":"Book Title 5","description":"This is a short story about this product...","thumbnail":"images/book5.png","URL":"Delivery.html", "author":"Author5", "price":"35"},
+    {"title":"Book Title 6","description":"This is a short story about this product...","thumbnail":"images/book6.jpg","URL":"Delivery.html", "author":"Author6", "price":"75"},
+    {"title":"Book Title 7","description":"This is a short story about this product...","thumbnail":"images/book7.jpg","URL":"Delivery.html", "author":"Author7", "price":"55"},
+    {"title":"Book Title 8","description":"This is a short story about this product...","thumbnail":"images/book1.jpg","URL":"Delivery.html", "author":"Author8", "price":"40"}
+]}

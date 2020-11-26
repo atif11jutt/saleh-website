@@ -10,6 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="JS/app.js"></script>
+    <script src="JS/chotbot.js"></script>
     
     </head>
     
@@ -24,7 +25,7 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav mx-auto">
       <li class="nav-item">
         <a class="nav-link" href="index.html"><i class="fa fa-home"></i> Home</a>
       </li>
@@ -44,44 +45,73 @@
         <a class="nav-link" href="SupportC.html"><i class="fa fa-tty"> </i> Support</a>
       </li>
     </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <button id="nav_login_1" type="button" class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#login">Login</button>
+        <h4 id="nav_login_2" class="mb-0" style="display: none;text-transform: capitalize;"></h4>
+    </form>
   </div>
 </nav>
     <div class="container-fluid bg-pink p-0">
         
         
-<div id="chat-wrapper">
-  <div id="chat-bot-mood">
-    <div id="chat-bot-mood-icon"></div>
-    <div id="chat-bot-mood-label">
-      <h1 id="chat-bot-mood-text">Chatbot is feeling</h1>
-      <h1 id="chat-bot-mood-value">Mood</h1>
+<div class="container">
+    <h2 class="col-12 text-center py-4">Customer Support(live)</h2>
+    <div id="wrapper">
+      <div id="outputWindow"></div>
+      <input type="text" id="inputWindow" class="form-control" placeholder="Send Message">
+      <div id="typing">Team member is typing..</div>
     </div>
-  </div>
-  <div id="letter-pool"></div>
-  <div id="temp-letter-pool"></div>
-  <div id="letter-overlay"></div>
-  <div id="chat-message-window">
-    <div id="message-input-wrapper">
-      <div id="message-input">
-        <input id="message-input-field" type="text" placeholder="Type a message" maxlength="100"/>
-        <div id="send-message-button"><i class="far fa-arrow-alt-circle-right"></i></div>
-      </div>
-    </div>
-    <div class="scroll-bar" id="chat-message-column-wrapper">
-      <div class="static" id="chat-message-column"></div>
-    </div>
-  </div>
-</div>
              
         
         </div>
     
+        </div>
+        
+        <footer class="my-5 pt-2 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2020 READAILY</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#.">Privacy</a></li>
+      <li class="list-inline-item"><a href="#.">Terms</a></li>
+      <li class="list-inline-item"><a href="#.">Support</a></li>
+    </ul>
+  </footer>
     
     
     
+        <!-- Modal -->
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginLabel">Modal Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class=" was-validated" id="login_form">
+            
+            <div class="form-group">
+      <label for="pwd">Usernmae:</label>
+      <input type="text" placeholder="Username" class="form-control mb-3" required id="username">
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+            
+            <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required minlength="6">
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+            <div class="text-center">
+            <button class="btn btn-success mb-3" id="login_btn">Login</button></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
     
-
     
-    <script src="JS/chotbot.js"></script>
     </body>
 </html>

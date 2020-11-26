@@ -2,96 +2,135 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Sales | Readaily </title>
+    <title> Readaily </title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="CSS/style.css">
 <!--    scripts   -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="JS/app.js"></script>
+    <script src='JS/app.js'></script>
+    <script>
+        $(document).ready(function(){
+            
+            //books fetching
+            $.ajax({
+                method: 'GET',
+                url: 'sales/sales.json'
+            }).done(function (data) {
+                for(var i=0; i<data.books.length; i++){
+                    
+                    var saleItem = `<div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+      <div class="card">
+        <img class="card-img" src="${data.books[i].thumbnail}" alt="Vans">
+        <div class="card-body">
+          <h3 class="card-title">${data.books[i].title}</h3>
+<h6 class="card-subtitle mb-2 text-muted">Author: <b>${data.books[i].author}</b></h6>
+          <p class="card-text">${data.books[i].description}</p>
+          <div class="options d-flex flex-fill">
+             <select class="custom-select mr-1">
+                <option selected>Color</option>
+                <option value="1">Green</option>
+                <option value="2">Blue</option>
+                <option value="3">Red</option>
+            </select>
+            <select class="custom-select ml-1">
+                <option selected>Quantity</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+          </div>
+          <div class="buy d-flex justify-content-between align-items-center">
+            <div class="price text-success"><h5 class="mt-4 font-weight-bold">$${data.books[i].price}</h5></div>
+             <a href="${data.books[i].URL}" class="btn btn-danger mt-3"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+          </div>
+        </div>
+      </div>
+    </div>`
+                    $("#books").append(saleItem)
+                }
+            });
+            
+        });
+    </script>
     </head>
     
     <body>
     
-      
-        
-        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-  <a class="navbar-brand" href="index.html">READAILY</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mx-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="index.html"><i class="fa fa-home"></i> Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="BookCenter.html"><i class="fa fa-book"></i> Book center</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="Podcast.html"><i class="fa fa-podcast"> </i> Podcast</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="Sales.html"><i class="fa fa-percent"> </i> Sales</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="Delivery.html"><i class="fa fa-truck"> </i> Delivery</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="SupportC.html"><i class="fa fa-tty"> </i> Support</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+            <a class="navbar-brand" href="index.html">READAILY</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html"><i class="fa fa-home"></i> Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="BookCenter.html"><i class="fa fa-book"></i> Book center</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Podcast.html"><i class="fa fa-podcast"> </i> Podcast</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="Sales.html"><i class="fa fa-percent"> </i> Sales</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Delivery.html"><i class="fa fa-truck"> </i> Delivery</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="SupportC.html"><i class="fa fa-tty"> </i> Support</a>
+              </li>
+            </ul>
+              
+              <form class="form-inline my-2 my-lg-0">
         <button id="nav_login_1" type="button" class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#login">Login</button>
         <h4 id="nav_login_2" class="mb-0" style="display: none;text-transform: capitalize;"></h4>
     </form>
-  </div>
-</nav>
-    <div class="container-fluid bg-pink">
-        
-        <div class="banner">
-            <div class="app-text">
-                <h1> BEST DIGITAL LIBRARY</h1>
-                <p> Our  library  will ensure to offer the lastest books for all types  of knowledege</p>
-            </div>
-           
-        
-        <div class="web-picture">
-            <img src="images/websiteLogo.PNG">
-           
-            </div>
+              
+          </div>
+        </nav>
+        <div class="jumbotron text-center">
+          <h1>Welcome to Book Sales Center</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p> 
         </div>
         
-        <div style="text-align:center;padding:1em 0;position: absolute;bottom: 10px;left: 10px;"> <h2><a style="text-decoration:none;" href="https://www.zeitverschiebung.net/en/city/292968"><span style="color:gray;">Current local time in</span><br />Abu Dhabi, United Arab Emirates</a></h2> <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=large&timezone=Asia%2FDubai" width="100%" height="140" frameborder="0" seamless></iframe> </div>
-        
-        
-        <div class="social-icons">
-            <ul>
-            
-            
-            <li><a href="https://facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="https://www.linkedin.com/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a></li>
-            
-            </ul>
-        
-        
+    <div class="container-fluid">
+
+        <div class="container">
+          <div class="row" id="books">
+              <!-- sales books from json file will be placed here -->
+          </div>
         </div>
-             
         
-        </div>
-    
-    
-    
-    
-    
+    </div>
         
         
+        <footer class="my-5 pt-2 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2020 READAILY</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#.">Privacy</a></li>
+      <li class="list-inline-item"><a href="#.">Terms</a></li>
+      <li class="list-inline-item"><a href="#.">Support</a></li>
+    </ul>
+  </footer>
         
-        <!-- Modal -->
+        
+        
+        
+        
+        
+        
+        
+        
+                <!-- Modal -->
 <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -124,8 +163,6 @@
     </div>
   </div>
 </div>
-    
-    
     
     </body>
 </html>
